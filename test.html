@@ -1,0 +1,32 @@
+<script>
+    const pager = function(n) {
+        const e = document.getElementById('script');
+    e.setAttribute('page', n);
+    e.setAttribute('src', './table.js');
+    };
+ document.onreadystatechange = function() {
+     if (document.readyState == 'interactive') {
+ 
+         let f = document.createElement('script');
+         f.id = 'script';
+         f.src = './table.js';
+         f.setAttribute('page', 2);
+         f.setAttribute('onTable', 'table_1');
+         document.getElementsByTagName('body')[0]
+             .appendChild(f);
+
+     setTimeout(() => {
+         let e = document.getElementById('script');
+         e.parentNode.removeChild(e);
+
+         let f = document.createElement('script');
+         f.id = 'script';
+         f.src = './table.js';
+         f.setAttribute('page', 3);
+         f.setAttribute('onTable', 'table_1');
+         document.getElementsByTagName('body')[0]
+         .appendChild(f);
+     }, 3000);
+     }
+ };
+</script>
